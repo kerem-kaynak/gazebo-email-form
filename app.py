@@ -49,7 +49,7 @@ def form_submission():
 
     print("Email data: ", email_body)
 
-    send_email("New Form Submission", email_body)
+    send_email("Yeni Form Kaydı", email_body)
 
     return jsonify({"message": "Form submitted successfully"}), 200
 
