@@ -10,8 +10,8 @@ COPY . /app
 # Install the required Python packages
 RUN pip install Flask
 
-# Expose the port the app runs on
-EXPOSE 5001
+# Expose the default port for Cloud Run
+EXPOSE 8080
 
 # Run the application
 CMD ["python", "app.py"]

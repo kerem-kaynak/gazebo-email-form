@@ -1,15 +1,13 @@
-from flask import Flask, request, jsonify
 import os
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-
-API_KEY = os.getenv("API_KEY")
 
 
 @app.route("/form-submission", methods=["POST"])
 def handle_request():
     api_key = request.headers.get("x-api-key")
-    if api_key != API_KEY:
+    if api_key != os.getenv("API_KEY"):
         return jsonify({"error": "Unauthorized"}), 401
 
     try:
@@ -22,4 +20,5 @@ def handle_request():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    port = int(os.environ.get("PORT", 8080))  # Use the PORT environment variable
+    app.run(host="0.0.0.0", port=port)
