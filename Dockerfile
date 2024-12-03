@@ -9,6 +9,7 @@ COPY . /app
 
 # Install the required Python packages
 RUN pip install Flask
+RUN pip install Flask-Mail
 
 # Expose the default port for Cloud Run
 EXPOSE 8080
