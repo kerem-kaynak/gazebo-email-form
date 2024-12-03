@@ -40,7 +40,6 @@ def form_submission():
                 <tr><td>Saat</td><td>{data.get('time', '')}</td></tr>
                 <tr><td>Misafir Sayısı</td><td>{data.get('seats', '')}</td></tr>
                 <tr><td>Mesaj</td><td>{data.get('message', '')}</td></tr>
-                <tr><td>İletişim izni</td><td>{data.get('checkbox', '')}</td></tr>
             </table>
         </body>
     </html>
