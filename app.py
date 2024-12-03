@@ -22,6 +22,8 @@ def form_submission():
 
     data = request.json or {}
 
+    print("Preparing email")
+
     email_body = f"""
     <html>
         <body>
@@ -42,23 +44,22 @@ def form_submission():
     </html>
     """
 
+    print("Email data: ", email_body)
+
     send_email("New Form Submission", email_body)
 
     return jsonify({"message": "Form submitted successfully"}), 200
 
 
 def send_email(subject, body):
-    try:
-        recipient = os.getenv("RECEIVER_EMAIL")
-        if not recipient:
-            raise ValueError("RECEIVER_EMAIL is not set in environment variables")
+    recipient = os.getenv("RECEIVER_EMAIL")
+    if not recipient:
+        raise ValueError("RECEIVER_EMAIL is not set in environment variables")
 
-        msg = Message(subject, recipients=[recipient])
-        msg.html = body
-        mail.send(msg)
-        print("Email sent successfully!")
-    except Exception as e:
-        print("Failed to send email:", e)
+    msg = Message(subject, recipients=[recipient])
+    msg.html = body
+    mail.send(msg)
+    print("Email sent successfully!")
 
 
 if __name__ == "__main__":
