@@ -19,11 +19,10 @@ mail = Mail(app)
 
 @app.route("/form-submission", methods=["POST"])
 def form_submission():
-    api_key = request.headers.get("x-api-key")
+    data = request.json or {}
+    api_key = data.get("api_key")
     if api_key != os.getenv("API_KEY"):
         return jsonify({"error": "Unauthorized"}), 401
-
-    data = request.json or {}
 
     print("Preparing email")
 
