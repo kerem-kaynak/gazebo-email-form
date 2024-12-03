@@ -29,18 +29,18 @@ def form_submission():
     email_body = f"""
     <html>
         <body>
-            <h3>New Form Submission</h3>
+            <h3>İletişim formu üzerinden yeni bir kayıt alındı!</h3>
             <table border="1" style="border-collapse: collapse;">
-                <tr><th>Field</th><th>Value</th></tr>
-                <tr><td>First Name</td><td>{data.get('first_name', '')}</td></tr>
-                <tr><td>Last Name</td><td>{data.get('last_name', '')}</td></tr>
-                <tr><td>Phone Number</td><td>{data.get('phone_number', '')}</td></tr>
+                <tr><th>Form Alanı</th><th>Değer</th></tr>
+                <tr><td>İsim</td><td>{data.get('first_name', '')}</td></tr>
+                <tr><td>Soyisim</td><td>{data.get('last_name', '')}</td></tr>
+                <tr><td>Telefon Numarası</td><td>{data.get('phone_number', '')}</td></tr>
                 <tr><td>Email</td><td>{data.get('email', '')}</td></tr>
-                <tr><td>Date</td><td>{data.get('date', '')}</td></tr>
-                <tr><td>Time</td><td>{data.get('time', '')}</td></tr>
-                <tr><td>Seats</td><td>{data.get('seats', '')}</td></tr>
-                <tr><td>Message</td><td>{data.get('message', '')}</td></tr>
-                <tr><td>Checkbox</td><td>{data.get('checkbox', '')}</td></tr>
+                <tr><td>Tarih</td><td>{data.get('date', '')}</td></tr>
+                <tr><td>Saat</td><td>{data.get('time', '')}</td></tr>
+                <tr><td>Misafir Sayısı</td><td>{data.get('seats', '')}</td></tr>
+                <tr><td>Mesaj</td><td>{data.get('message', '')}</td></tr>
+                <tr><td>İletişim izni</td><td>{data.get('checkbox', '')}</td></tr>
             </table>
         </body>
     </html>
